@@ -5,7 +5,7 @@ const app = express()
 const port = process.env.PORT || constants.appPort
 
 app.use(express.json()) // for parsing application/json
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`Example app listening at port ${port}`))
 
 const map = {
     home: '/',
