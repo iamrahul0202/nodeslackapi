@@ -4,11 +4,13 @@
   "description": "Node JS Application for communicating with Slack App",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev.slack.event": "slack-verify --secret 42d546cf786e98426e8305547638dd44"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@slack/events-api": "^2.3.2",
     "@slack/webhook": "^5.0.3",
     "express": "^4.17.1",
     "winston": "^3.2.1"
