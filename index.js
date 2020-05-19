@@ -14,16 +14,22 @@ const map = {
 logger.info(map)
 
 
+//events
+//Events api should always be first in the app. Because parsing of events should happen before body-parser of express.js
+//https://slack.dev/node-slack-sdk/events-api
+require('./eventsApi')(app, map.eventsapi)
+
+
+app.use(express.json()) // for parsing application/json
+
 //webhook
 require('./webhook')(app, map.webhook)
 
-//events
-require('./eventsApi')(app, map.eventsapi)
 
 //Boot Express
 app.get(map['home'], (req, res) => res.send(map))
 
-app.use(express.json()) // for parsing application/json
+
 app.listen(port, () => logger.info(`Example app listening at port ${port}`))
 
 
