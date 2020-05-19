@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@slack/events-api": "^2.3.2",
+    "@slack/interactive-messages": "^1.6.0",
+    "@slack/web-api": "^5.8.1",
     "@slack/webhook": "^5.0.3",
     "express": "^4.17.1",
     "winston": "^3.2.1"

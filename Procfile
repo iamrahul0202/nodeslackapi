@@ -1,1 +1,1 @@
-web: DEBUG=@slack/events-api:* node index.js
+web: node index.js
