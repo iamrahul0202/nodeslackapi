@@ -7,7 +7,7 @@ const slackEvents = createEventAdapter(slackSigningSecret);
 
 
 slackEvents.on('message', (event) => {
-    logger.info(`Received a message event: user ${event.user} in channel ${event.channel} says ${event.text}`);
+    logger.info(`Received event ${event}`);
 });
 
 module.exports = function (app, path) {
