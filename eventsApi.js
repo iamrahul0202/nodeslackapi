@@ -2,7 +2,7 @@ const { createEventAdapter } = require('@slack/events-api');
 const constants = require('./constants')
 const { logger } = require('./logger')
 
-const slackSigningSecret = constants.signingKeySecret;
+const slackSigningSecret = process.env.signingKeySecret || constants.signingKeySecret;
 const slackEvents = createEventAdapter(slackSigningSecret);
 
 
