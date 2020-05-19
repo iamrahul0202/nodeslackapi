@@ -2,7 +2,7 @@ const winston = require('winston')
 const format = winston.format
 module.exports.logger = winston.createLogger({
     format: format.prettyPrint({
-        depth: 20
+        depth: 50
     }),
     transports: [
         new winston.transports.File({ filename: 'app.error.log', level: 'error' }),

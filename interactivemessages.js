@@ -7,12 +7,13 @@ const slackInteractions = createMessageAdapter(slackSigningSecret);
 
 slackInteractions.action({ type: 'static_select' }, (payload, respond) => {
     console.log('dropdown')
-    console.dir(payload)
+    //console.dir(payload)
+    logger.info(payload)
 })
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
     console.log('button')
-    console.dir(payload)
+    logger.log(payload)
     return { text: 'Processing...' };
 })
 module.exports = function (app, path) {

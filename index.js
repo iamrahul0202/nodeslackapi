@@ -1,6 +1,7 @@
 const constants = require('./constants')
 const { logger } = require('./logger')
 const express = require('express')
+const path  = require('path')
 
 const app = express()
 const port = process.env.PORT || constants.appPort
@@ -12,6 +13,7 @@ const map = {
     interaction: '/interact'
 }
 
+console.log(path.resolve(__dirname))
 logger.info(map)
 
 
