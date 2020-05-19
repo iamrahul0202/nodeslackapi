@@ -2,13 +2,14 @@ const { createMessageAdapter } = require('@slack/interactive-messages');
 const constants = require('./constants')
 const { logger } = require('./logger')
 const { WebClient } = require('@slack/web-api');
-const web = new WebClient(token);
+
 const modal = require('./modal')
 
 const slackSigningSecret = process.env.signingKeySecret || constants.signingKeySecret;
 const token = process.env.token || constants.token;
 const slackInteractions = createMessageAdapter(slackSigningSecret);
 
+const web = new WebClient(token);
 slackInteractions.action({ type: 'static_select' }, (payload, respond) => {
     console.log('dropdown')
     //console.dir(payload)
