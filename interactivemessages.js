@@ -13,7 +13,7 @@ slackInteractions.action({ type: 'static_select' }, (payload, respond) => {
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
     console.log('button')
-    logger.log(payload)
+    logger.info(payload)
     return { text: 'Processing...' };
 })
 module.exports = function (app, path) {
