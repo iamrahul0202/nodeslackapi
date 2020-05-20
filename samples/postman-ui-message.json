@@ -4,8 +4,16 @@
         {
             "type": "section",
             "text": {
+                "type": "plain_text",
+                "text": "Hi. You have been marked on Litigation Hold.",
+                "emoji": true
+            }
+        },
+        {
+            "type": "section",
+            "text": {
                 "type": "mrkdwn",
-                "text": "Hi. You have been marked on Litigation Hold. *Please acknowledge.* "
+                "text": " *Please acknowledge.* "
             },
             "accessory": {
                 "type": "button",

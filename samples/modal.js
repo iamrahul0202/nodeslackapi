@@ -2,7 +2,7 @@ module.exports = {
     "type": "modal",
     "title": {
         "type": "plain_text",
-        "text": "My App",
+        "text": "Litigation Hold Form",
         "emoji": true
     },
     "submit": {

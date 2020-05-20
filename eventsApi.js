@@ -13,13 +13,35 @@ slackEvents.on('message', (event) => {
     //console.dir(event)
     logger.info(event);
 
-    if(event.client_msg_id){
-        let ack = {
+    if (event.client_msg_id) {
+        console.log('Calling UserInfo API')
+
+        //Received Message - ${event.text}. We will review and get back to you
+
+        let msg = {
             token: token,
-            text: `Received Message - ${event.text}. We will review and get back to you`,
+            text: `Received Message - ${event.text}. :+1:`,
             channel: event.channel
         }
-        web.chat.postMessage(ack)
+
+        let txt = event.text
+        if (txt == 'Hello' || txt == 'Hi') {
+            web.users.info({
+                token: token,
+                user: event.user
+            }).then(res => {
+                msg.text = `Hey ${res.user.real_name}. This is LHNotificationBot here. :handshake:`
+                web.chat.postMessage(msg)
+            })
+        } else if (msg == 'am I still on hold') {
+            msg.text = `Yes you are still on hold`
+            msg.thread_ts = event.ts
+            web.chat.postMessage(msg)
+        } else {
+            web.chat.postMessage(msg)
+        }
+
+
     }
 });
 

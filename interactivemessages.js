@@ -5,6 +5,7 @@ const { WebClient } = require('@slack/web-api');
 
 const modal = require('./samples/modal')
 const modalshortcut = require('./samples/modalshortcut')
+const ackResponseBlock = require('./samples/ackResponse')
 
 const slackSigningSecret = process.env.signingKeySecret || constants.signingKeySecret;
 const token = process.env.token || constants.token;
@@ -29,17 +30,21 @@ slackInteractions.action({ type: 'static_select' }, (payload, respond) => {
     web.chat.postMessage(ack)
 })
 
-slackInteractions.action({ type: 'button' }, (payload, respond) => {
-    console.log('button')
-    logger.info(payload)
-    console.dir(`Button clicked with value - ${payload.actions[0].value}`)
 
+
+slackInteractions.action({ actionId: 'acknowledgement' }, (payload, respond) => {
+    console.log('acknowledgement button clicked')
     let ack = {
         token: token,
-        text: `Thank You for acknowledgment. Here is the form....`,
-        channel: payload.channel.id
+        channel: payload.channel.id,
+        blocks: ackResponseBlock
     }
     web.chat.postMessage(ack)
+
+})
+
+slackInteractions.action({ actionId: 'questionare' }, (payload, respond) => {
+    console.log('questionare button clicked')
     return web.views.open({
         token: token,
         trigger_id: payload.trigger_id,
@@ -47,6 +52,25 @@ slackInteractions.action({ type: 'button' }, (payload, respond) => {
     })
 
 })
+
+// slackInteractions.action({ type: 'button' }, (payload, respond) => {
+//     console.log('button')
+//     logger.info(payload)
+//     console.dir(`Button clicked with value - ${payload.actions[0].value}`)
+
+//     let ack = {
+//         token: token,
+//         text: `Thank You for acknowledgment. Please click Questionare button`,
+//         channel: payload.channel.id
+//     }
+//     web.chat.postMessage(ack)
+//     return web.views.open({
+//         token: token,
+//         trigger_id: payload.trigger_id,
+//         view: modal
+//     })
+
+// })
 
 //For handling shortcuts
 slackInteractions.shortcut({ callback: 'reviewform', type: 'shortcut' }, (payload) => {
