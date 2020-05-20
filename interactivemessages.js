@@ -22,9 +22,10 @@ slackInteractions.action({ type: 'static_select' }, (payload, respond) => {
         text: `You selected ${payload.actions[0].selected_option.value}`,
         channel: payload.channel_id
     }
-    (async () => {
-        await web.chat.postMessage(ack)
-    })()
+    web.chat.postMessage(ack)
+    // (async () => {
+    //     await web.chat.postMessage(ack)
+    // })()
 })
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
