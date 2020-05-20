@@ -17,7 +17,7 @@ slackEvents.on('message', (event) => {
         let ack = {
             token: token,
             text: `Received Message - ${event.text}. We will review and get back to you`,
-            channel: event.channel.id
+            channel: event.channel
         }
         web.chat.postMessage(ack)
     }
