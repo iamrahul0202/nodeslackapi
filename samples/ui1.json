@@ -1,0 +1,60 @@
+{
+    "channel": "C013P7V3206",
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "plain_text",
+                "text": "Please select valid options.",
+                "emoji": true
+            }
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "Country you belong to"
+            },
+            "accessory": {
+                "type": "static_select",
+                "placeholder": {
+                    "type": "plain_text",
+                    "text": "Select an item",
+                    "emoji": true
+                },
+                "options": [
+                    {
+                        "text": {
+                            "type": "plain_text",
+                            "text": "UK",
+                            "emoji": true
+                        },
+                        "value": "UK"
+                    },
+                    {
+                        "text": {
+                            "type": "plain_text",
+                            "text": "USA",
+                            "emoji": true
+                        },
+                        "value": "USA"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "Submit",
+                        "emoji": true
+                    },
+                    "value": "Submit"
+                }
+            ]
+        }
+    ]
+}

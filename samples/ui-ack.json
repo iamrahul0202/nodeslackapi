@@ -1,0 +1,21 @@
+{
+    "channel": "C013P7V3206",
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "Hi. You have been marked on Litigation Hold. *Please acknowledge.* "
+            },
+            "accessory": {
+                "type": "button",
+                "text": {
+                    "type": "plain_text",
+                    "text": "Acknowledge",
+                    "emoji": true
+                },
+                "value": "acknowledged"
+            }
+        }
+    ]
+}
