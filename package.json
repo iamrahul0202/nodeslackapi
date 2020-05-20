@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "clean": "node chatDelete.js",
     "dev.slack.event": "slack-verify --secret 42d546cf786e98426e8305547638dd44"
   },
   "author": "",
