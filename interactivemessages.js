@@ -9,8 +9,9 @@ const modalshortcut = require('./samples/modalshortcut')
 const slackSigningSecret = process.env.signingKeySecret || constants.signingKeySecret;
 const token = process.env.token || constants.token;
 
+//syncResponseTimeout must be between 1 and 3000
 const slackInteractions = createMessageAdapter(slackSigningSecret, {
-    syncResponseTimeout: 4000
+    syncResponseTimeout: 3000
 });
 
 const web = new WebClient(token);
