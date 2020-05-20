@@ -20,7 +20,7 @@ slackEvents.on('message', (event) => {
 
         let msg = {
             token: token,
-            text: `Received Message - ${event.text}. :+1:`,
+            text: `Message Received :+1: - ${event.text}.`,
             channel: event.channel
         }
 
@@ -33,7 +33,7 @@ slackEvents.on('message', (event) => {
                 msg.text = `Hey ${res.user.real_name}. This is LHNotificationBot here. :handshake:`
                 web.chat.postMessage(msg)
             })
-        } else if (msg == 'am I still on hold') {
+        } else if (txt.toLowerCase() == 'am i still on hold') {
             msg.text = `Yes you are still on hold`
             msg.thread_ts = event.ts
             web.chat.postMessage(msg)

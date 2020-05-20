@@ -22,7 +22,8 @@
                     "text": "Acknowledge",
                     "emoji": true
                 },
-                "value": "acknowledged"
+                "value": "acknowledged",
+                "action_id": "acknowledgement"
             }
         }
     ]
