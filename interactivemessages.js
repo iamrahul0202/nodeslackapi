@@ -10,15 +10,19 @@ const token = process.env.token || constants.token;
 const slackInteractions = createMessageAdapter(slackSigningSecret);
 
 const web = new WebClient(token);
+
 slackInteractions.action({ type: 'static_select' }, (payload, respond) => {
     console.log('dropdown')
     //console.dir(payload)
     logger.info(payload)
+    console.dir(payload.actions[0].value)
+    return { text: 'Processing... dropdown....' };
 })
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
     console.log('button')
     logger.info(payload)
+    console.dir(payload.actions[0].value)
     return { text: 'Processing...' };
 })
 
