@@ -15,8 +15,16 @@ slackInteractions.action({ type: 'static_select' }, (payload, respond) => {
     console.log('dropdown')
     //console.dir(payload)
     logger.info(payload)
-    console.dir(payload.actions[0].value)
-    return { text: 'Processing... dropdown....' };
+    
+    console.dir(payload.actions[0].selected_option.value)
+    let ack = {
+        token: token,
+        text: `You selected ${payload.actions[0].selected_option.value}`,
+        channel: payload.channel_id
+    }
+    (async () => {
+        await web.chat.postMessage(ack)
+    })()
 })
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
