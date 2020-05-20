@@ -13,9 +13,8 @@ const web = new WebClient(token);
 
 slackInteractions.action({ type: 'static_select' }, (payload, respond) => {
     console.log('dropdown')
-    //console.dir(payload)
     logger.info(payload)
-    
+
     console.dir(payload.actions[0].selected_option.value)
     let ack = {
         token: token,
@@ -23,16 +22,20 @@ slackInteractions.action({ type: 'static_select' }, (payload, respond) => {
         channel: payload.channel.id
     }
     web.chat.postMessage(ack)
-    // (async () => {
-    //     await web.chat.postMessage(ack)
-    // })()
 })
 
 slackInteractions.action({ type: 'button' }, (payload, respond) => {
     console.log('button')
     logger.info(payload)
     console.dir(payload.actions[0].value)
-    return { text: 'Processing...' };
+
+    let ack = {
+        token: token,
+        text: `Button clicked with value - ${payload.actions[0].value}`,
+        channel: payload.channel.id
+    }
+
+    web.chat.postMessage(ack)
 })
 
 
