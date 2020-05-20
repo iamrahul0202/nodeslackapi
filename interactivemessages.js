@@ -20,7 +20,7 @@ slackInteractions.action({ type: 'static_select' }, (payload, respond) => {
     let ack = {
         token: token,
         text: `You selected ${payload.actions[0].selected_option.value}`,
-        channel: payload.channel_id
+        channel: payload.channel.id
     }
     web.chat.postMessage(ack)
     // (async () => {
